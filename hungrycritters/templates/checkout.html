@@ -1,0 +1,75 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="box-element">
+                <a class="btn btn-outline-info" href="/cart">&#x2190; Back to Cart</a>
+                <hr>
+                <h3>Order Summary</h3>
+                <hr>
+                {% for item in add_cart.productorder.all %}
+                <div class="cart-row">
+                        <div style="flex:2"><img class="row-image" src="{{item.product.image.url}}"></div>
+                        <div style="flex:2"><p>{{item.product.item}}</p></div>
+                        <div style="flex:1"><p>${{item.product.price}}</p></div>
+                        <div style="flex:1"><p>x{{item.quantity}}</p></div>
+                </div>
+                {% endfor %}
+                <h5>Total: ${{add_cart.items}}</h5>
+                <h5>Total: ${{add_cart.total|floatformat:2}}</h5>
+            </div>
+            
+        </div>
+        <div class="col-lg-12">
+            <div class="box-element" id="form-wrapper">
+                <form id="form" method="POST" action="/processorder/{{add_cart.id}}">
+                        {% csrf_token %}
+                        <div id="shipping-info">
+                            <hr>
+                            <p>Shipping Information:</p>
+                            <hr>
+                            <div class="form-field">
+                                <input required class="form-control" type="text" name="address" placeholder="Address">
+                            </div>
+                            <div class="form-field">
+                                <input required class="form-control" type="text" name="city" placeholder="City">
+                            </div>
+                            <div class="form-field">
+                                <input required class="form-control" type="text" name="state" placeholder="State">
+                            </div>
+                            <div class="form-field">
+                                <input required class="form-control" type="text" name="zipcode" placeholder="Zip Code">
+                            </div>  
+                        </div>
+
+                        <hr>
+                        <input id="form-button" class="btn btn-info btn-block" type="submit" value="Continue">
+                </form>
+            </div>
+            <br>
+            <div class="box-element hidden" id="payment-info">
+                <small>Payment Options</small><br><br>
+                <div id="paypal-button-container"></div>
+                <hr>
+            </div>
+        </div>
+    </div>
+    <script src="https://www.paypal.com/sdk/js?client-id=AexSwC_js0TokQyOLIXiBwPFgdFRuO_gP0c-HlBb1SIzIfUWD0que2O7Qntz3ssrJLZ-5eCw9hFbNWTX&currency=USD"></script>
+
+    <script>
+        var total = '{{order.get_cart_total}}'
+        // Render the PayPal button into #paypal-button-container
+        paypal.Buttons({
+
+            style: {
+                color:  'blue',
+                shape:  'pill',
+                label:  'pay',
+                size: 'responsive'
+            },
+
+        }).render('#paypal-button-container');
+    </script>
+
+{% endblock content %}

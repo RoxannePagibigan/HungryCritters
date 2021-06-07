@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+	<div class="row">
+	<div class="col-lg-6">
+		<img style="border:1px solid #888" class="thumbnail-product" src="{{view_products.image.url}}">
+	</div>
+
+	<div style="padding:50px" class="col-lg-6">
+		
+		<h3>{{view_products.item}}</h3>
+		<p>{{view_products.description}}</p>
+		<hr>
+		<form method="POST" action="/addtocart/{{view_products.id}}">
+			{% csrf_token %}
+			<input class="btn btn-outline-secondary" type="submit" value="Add to Cart">
+		</form>
+	</div>
+</div>
+{% endblock content %}

@@ -1,0 +1,65 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="box-element">
+                <a class="btn btn-outline-info" href="/home">&#x2190; Continue Shopping</a>
+                <br><br>
+                <table class="table">
+                    {% if add_cart is None %}
+                        <tr>
+                            <th><h5>Items: <strong> {{0}}</strong></h5></th>
+                            
+                            <th><h5>Total: <strong>${{0.0}}</strong></h5></th>
+                            <th>
+                                <a style="float:right; margin:5px;" class="btn btn-info" href="/checkout">Checkout</a>
+                            </th>
+                        </tr>
+                    {% else %}
+                        <tr>
+                            <th><h5>Items: <strong> {{add_cart.items}}</strong></h5></th>
+                            
+                            <th><h5>Total: <strong>${{add_cart.total|floatformat:2}}</strong></h5></th>
+                            <th>
+                                <a style="float:right; margin:5px;" class="btn btn-info" href="/checkout">Checkout</a>
+                            </th>
+                        </tr>
+                    {% endif %}
+                </table>
+            </div>
+
+            <br>
+            <div class="box-element">
+                <div class="cart-row">
+                        <div style="flex:2"></div>
+                        <div style="flex:2"><strong>Item</strong></div>
+                        <div style="flex:1"><strong>Price</strong></div>
+                        <div style="flex:1"><strong>Quantity</strong></div>
+                        <div style="flex:1"><strong>Total</strong></div>
+                </div>
+                {% if add_cart is None %}
+                    <div align="center">
+                        <h3>Your cart is empty</h3>
+                    </div>
+                {% else %}
+                    {% for item in add_cart.productorder.all %}        
+                        <div class="cart-row">
+                                <div style="flex:2"><img class="row-image" src="{{item.product.image.url}}"></div>
+                                <div style="flex:2"><p>{{item.product.item}}</p></div>
+                                <div style="flex:1"><p>{{item.product.price}}</p></div>
+                                <div style="flex:1">
+                                    <p class="quantity">{{item.quantity}}</p>
+                                    <div class="quantity">
+                                        <a href="/additem/{{item.id}}"><img class="chg-quantity" src="{% static  'img/arrow-up.png' %}"></a>
+                                        <a href="/removeitem/{{item.id}}" action="decrease"><img class="chg-quantity" src="{% static  'img/arrow-down.png' %}"></a>
+                                    </div>
+                                </div>
+                                <div style="flex:1"><p>${{item.subtotal}}</p></div>
+                        </div>
+                    {% endfor %}
+                {% endif %}
+            </div>
+        </div>
+    </div>
+{% endblock content %}
