@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>Hungry Critters</title>
+        <!-- Favicon-->
+        <link rel="icon" href="static/img/favicon.ico" />
+        <link href="{% static 'css/styles.css' %}" rel="stylesheet" />
+    </head>
+    <body>
+        <!-- Navigation-->
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <div class="container">
+                <a class="navbar-brand" href="/">Hungry Critters</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+                <div class="collapse navbar-collapse" id="navbarResponsive">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item active"><a class="nav-link" href="/login">Login</a></li>
+                        <li class="nav-item active"><a class="nav-link" href="/register">Sign Up</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <!-- Header-->
+        <header class="bg-primary py-5 mb-5">
+            <div class="container h-100">
+                <div class="row h-100 align-items-center">
+                    <div class="col-lg-12">
+                        <h1 class="display-4 text-white mt-5 mb-2">Hungry Critters</h1>
+                        <p class="lead mb-5 text-white-50">Your one-stop shop for all your exotic pet needs.</p>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!-- Page Content-->
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 mb-5">
+                    <h2>What We Do</h2>
+                    <hr />
+                    <p align="justify">We are happy to provide you with exotic pets and the supplies necessary for their sustenance. We make sure to create mesmerizing displays to showcase not only the animals, but also to recreate their natural habitats as much as possible. Above all else, we always strive hard to give our customers and the pets the support they need. We at Hungry Critters, we always aim to provide expert advice and excellent service!</p>
+                </div>
+                <div class="col-md-4 mb-5">
+                    <h2>Contact Us</h2>
+                    <hr />
+                    <address>
+                        <strong>Roxanne Pagibigan</strong>
+                        <br />
+                        Commerce City, CO 80022
+                        <br />
+                    </address>
+                    <address>
+                        <abbr title="Phone">Phone:</abbr>
+                        (303) 667-9699
+                        <br />
+                        <abbr title="Email">Email:</abbr>
+                        <a href="mailto:#">tan.teej@gmail.com</a>
+                    </address>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4 mb-5">
+                    <div class="card h-100">
+                        <img class="card-img-top" src="{% static 'img\shutterstock_181626731.jpg' %}" alt="..." />
+                        <div class="card-body">
+                            <h4 class="card-title">Pacman Frog</h4>
+                            <p class="card-text" align="justify">Ceratophrys is a genus of frogs in the family Ceratophryidae. They are also known as South American horned frogs as well as Pacman frogs due to their characteristic round shape and large mouth, reminiscent of the video game character Pac-Man.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-5">
+                    <div class="card h-100">
+                        <img class="card-img-top" src="{% static 'img\shutterstock_75772561.jpg' %}" alt="..." />
+                        <div class="card-body">
+                            <h4 class="card-title">Painted Turtle</h4>
+                            <p class="card-text" align="justify">The painted turtle (Chrysemys picta) is the most widespread native turtle of North America. It lives in slow-moving fresh waters, from southern Canada to northern Mexico, and from the Atlantic to the Pacific. The turtle is the only species of the genus Chrysemys, which is part of the pond turtle family Emydidae. Fossils show that the painted turtle existed 15 million years ago. Four regionally based subspecies (the eastern, midland, southern, and western) evolved during the last ice age.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-5">
+                    <div class="card h-100">
+                        <img class="card-img-top" src="{% static 'img\shutterstock_151616837.jpg' %}" alt="..." />
+                        <div class="card-body">
+                            <h4 class="card-title">Blue Poison Dart Frog</h4>
+                            <p class="card-text" align="justify">The blue poison dart frog or blue poison arrow frog (Dendrobates tinctorius "azureus") is a poison dart frog found in the forests surrounded by the Sipaliwini Savanna, which is located in southern Suriname and adjacent far northern Brazil. D. tinctorius azureus is also known by its indigenous Tirio name, okopipi. Its scientific name comes from its azure (blue) color. While frequently considered a valid species in the past, recent authorities treat it as a variant of D. tinctorius.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Footer-->
+        <footer class="py-5 bg-dark">
+            <div class="container"><p class="m-0 text-center text-white">Copyright &copy; Hungry Critters 2021</p></div>
+        </footer>
+        <!-- Bootstrap core JS-->
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Core theme JS-->
+        <script src="js/scripts.js"></script>
+    </body>
+</html>
